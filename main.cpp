@@ -13,11 +13,16 @@
 
 using namespace std;
 using namespace std::chrono;
+
 void regenerateArray(int* array, int n)
 {
+	// Use Mersenne Twister PRNG
+	std::random_device                  rand_dev;
+	std::mt19937                        generator(rand_dev());
+	std::uniform_int_distribution<int>  distr(0, 2147483647);
 	for (int i = 0; i < n; i++)
 	{
-		array[i] = rand();
+		array[i] = distr(generator);
 	}
 }
 
