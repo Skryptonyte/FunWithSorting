@@ -19,5 +19,20 @@ Currently, it tests the following
 Tested on a Ryzen 4900HS running Windows 10.
 
 ```
-Merge Sort Variant comparisons:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Built in C++ Sort : 706ms                                                                                                                                                                                        Built in C++ Stable-Sort : 914ms                                                                                                                                                                                 Built in C Quick-Sort : 1019ms                                                                                                                                                                                                                                                                                                                                                                                                    Merge Sort : 2697ms                                                                                                                                                                                                                                                                                                                                                                                                               Merge Sort (with Insertion Sort, MINRUN=32): 1046ms                                                                                                                                                              Merge Sort (with Insertion Sort, MINRUN=64): 959ms                                                                                                                                                                                                                                                                                                                                                                                Merge Sort (with Binary Insertion Sort, MINRUN=32): 1189ms                                                                                                                                                       Merge Sort (with Binary Insertion Sort, MINRUN=64): 1186ms                                                                                                                                                                                                                                                                                                                                                                        Merge Sort (with Shell Sort, using Ciura Sequence (till 57), MINRUN=64): 544ms
+Merge Sort Variant comparisons:
+
+
+Built in C++ Sort : 706ms
+Built in C++ Stable-Sort : 914ms
+Built in C Quick-Sort : 1019ms
+
+Merge Sort : 2697ms
+
+Merge Sort (with Insertion Sort, MINRUN=32): 1046ms
+Merge Sort (with Insertion Sort, MINRUN=64): 959ms
+
+Merge Sort (with Binary Insertion Sort, MINRUN=32): 1189ms
+Merge Sort (with Binary Insertion Sort, MINRUN=64): 1186ms
+
+Merge Sort (with Shell Sort, using Ciura Sequence (till 57), MINRUN=64): 544ms
 ```
