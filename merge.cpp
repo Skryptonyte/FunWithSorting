@@ -69,6 +69,31 @@ void mergeSortModified(int* arr, int l, int r,int replaceFunc,int minrun, void (
 
 }
 
+int medianOfThree(int* arr, int a, int b, int c)
+{
+    // Compare each three number to find middle
+    // number. Enter only if a > b
+    if (arr[a] > arr[b])
+    {
+        if (arr[b] > arr[c])
+            return b;
+        else if (arr[a] > arr[c])
+            return c;
+        else
+            return a;
+    }
+    else
+    {
+        // Decided a is not greater than b.
+        if (arr[a] > arr[c])
+            return a;
+        else if (arr[b] > arr[c])
+            return c;
+        else
+            return b;
+    }
+
+}
 
 void quickSort(int* arr, int l, int r, int replaceFunc, int minrun, void (*func)(int*,int,int))
 {
@@ -86,6 +111,10 @@ void quickSort(int* arr, int l, int r, int replaceFunc, int minrun, void (*func)
 		func(arr,l,r);
 		return;
 	}
+
+	int selectedPivot = medianOfThree(arr,l,l + (r-l)>>1,r);
+
+	swap(arr[r],arr[selectedPivot]);
 
 	for (int i = l; i <= r-1; i++)
 	{
