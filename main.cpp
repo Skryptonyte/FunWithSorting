@@ -104,7 +104,7 @@ int main()
 
 	/////
 	regenerateArray(array,SIZE);
-	cout << "Merge Sort (with Insertion Sort, MINRUN=32): ";
+	cout << "Merge Sort (Inplace: Insertion Sort, MINRUN=32): ";
 	
 	start = high_resolution_clock::now();
 	mergeSortModified(array,0,SIZE-1,1,32,insertionSort);
@@ -117,7 +117,7 @@ int main()
 	/////
 	regenerateArray(array,SIZE);
 
-	cout << "Merge Sort (with Insertion Sort, MINRUN=64): ";
+	cout << "Merge Sort (Inplace: Insertion Sort, MINRUN=64): ";
 	
 	start = high_resolution_clock::now();
 	mergeSortModified(array,0,SIZE-1,1,64,insertionSort);
@@ -131,7 +131,7 @@ int main()
 	/////
 	regenerateArray(array,SIZE);
 
-	cout << "Merge Sort (with Binary Insertion Sort, MINRUN=32): ";
+	cout << "Merge Sort (Inplace: Binary Insertion Sort, MINRUN=32): ";
 	
 	start = high_resolution_clock::now();
 	mergeSortModified(array,0,SIZE-1,1,32,insertionSortBinary);
@@ -140,10 +140,10 @@ int main()
 	verifyArray(array,SIZE);
 
 	cout << duration_cast<milliseconds>(stop-start).count()<<"ms"<<endl;
-
+	/////
 	regenerateArray(array,SIZE);
 
-	cout << "Merge Sort (with Binary Insertion Sort, MINRUN=64): ";
+	cout << "Merge Sort (Inplace: Binary Insertion Sort, MINRUN=64): ";
 	
 	start = high_resolution_clock::now();
 	mergeSortModified(array,0,SIZE-1,1,64,insertionSortBinary);
@@ -154,22 +154,46 @@ int main()
 	cout << duration_cast<milliseconds>(stop-start).count()<<"ms"<<endl;
 	cout << endl;
 
+	/////
 	regenerateArray(array,SIZE);
 
-	cout << "Merge Sort (with Shell Sort, using Ciura Sequence (till 57), MINRUN=64): ";
+	cout << "Merge Sort (Inplace: Shell Sort, using Ciura Sequence (till 57), MINRUN=64): ";
 	
 	start = high_resolution_clock::now();
 	mergeSortModified(array,0,SIZE-1,1,64,shellSort);
 	stop = high_resolution_clock::now();
 
 	verifyArray(array,SIZE);
+
+	
+	cout << duration_cast<milliseconds>(stop-start).count()<<"ms"<<endl;
+	cout << endl;
+	/////
+	regenerateArray(array,SIZE);
+
+	cout << "Quick Sort: ";
+	
+	start = high_resolution_clock::now();
+	quickSort(array,0,SIZE-1,0,0,NULL);
+	stop = high_resolution_clock::now();
+
+	verifyArray(array,SIZE);
+	
+	cout << duration_cast<milliseconds>(stop-start).count()<<"ms"<<endl;
+	/////
+	regenerateArray(array,SIZE);
+
+	cout << "Quick Sort (Inplace: Shell Sort, MINRUN: 64): ";
+	
+	start = high_resolution_clock::now();
+	quickSort(array,0,SIZE-1,1,64,shellSort);
+
+	stop = high_resolution_clock::now();
+
+	verifyArray(array,SIZE);
+	
 	cout << duration_cast<milliseconds>(stop-start).count()<<"ms"<<endl;
 
-	/*
-	for (int i = 0; i < SIZE; i++)
-	{
-		cout<<array[i]<<endl;
-	}
-	*/
+
 }
 

@@ -43,14 +43,15 @@ void insertionSortBinary(int* arr, int l, int r)
 
 void shellSort(int* arr, int l, int r)
 {
-	int gaps[] = {57,23,10,4,1};     // Ciura Gap Sequence
+	 //cout << l << " " << r << endl;
 
+	int gaps[] = {57,23,10,4,1};     // Ciura Gap Sequence
 	for (int gapIndex = 0; gapIndex < 5; gapIndex++)
 	{
 		int gap = gaps[gapIndex];
-		for (int i = l+gap; i <= r; i++)
+		for (int i = l; i <= r; i++)
 		{
-			int j = i-1;
+			int j = i-gap;
 			int value = arr[i];
 			for (j; j >= l && arr[j] > value; j -= gap)
 			{

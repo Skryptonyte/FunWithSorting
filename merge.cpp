@@ -68,3 +68,37 @@ void mergeSortModified(int* arr, int l, int r,int replaceFunc,int minrun, void (
 	delete leftArr;
 
 }
+
+
+void quickSort(int* arr, int l, int r, int replaceFunc, int minrun, void (*func)(int*,int,int))
+{
+	// cout << l << " " << r << endl;
+	
+	int lowIndex = l;
+	int size = r-l+1;
+
+	if (size <=  1|| l <0 || r<0)
+	{
+		return;
+	}
+	else if (size <= minrun && replaceFunc)
+	{
+		func(arr,l,r);
+		return;
+	}
+
+	for (int i = l; i <= r-1; i++)
+	{
+		if (arr[i] < arr[r])
+		{
+			swap(arr[i],arr[lowIndex]);
+
+			lowIndex++;
+		}
+	}
+
+	swap(arr[r],arr[lowIndex]);
+
+	quickSort(arr,l,lowIndex-1,replaceFunc,minrun,func);
+	quickSort(arr,lowIndex+1,r,replaceFunc,minrun,func);
+}
