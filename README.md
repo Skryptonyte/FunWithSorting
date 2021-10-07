@@ -1,15 +1,16 @@
 
-# Combined sorts
+# Intro sorts
 
-This mini project aims at benchmarking combinations of sorting algorithms.
+This mini project aims at benchmarking many variations of introsort.
 
 Currently, it tests the following
 
 * The C and C++ built in sorting functions
-* Merge sort (top-down), modified to switch to another sorting algorithm at some minrun threshold
- * Typically uses insertion algorithms, since they are the fastest with smaller array sizes.
-* Insertion algorithms: Vanilla, Binary Insertion and Shell Sort (using Ciura sequence).
+* Merge sort and QuickSort, both optimized to switch to another algorithm below minrun threshold
+  * Typically uses insertion sort, since they are the fastest with smaller array sizes.
+* Insertion Sort Variants: Vanilla, Binary Insertion and Shell Sort (using Ciura sequence).
 * Benchmark size hardcoded at 10M.
+
 # Compilation
 
 `gcc *.cpp -O3 -march=native`
