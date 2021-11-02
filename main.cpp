@@ -44,7 +44,6 @@ int cmpfunc (const void * a, const void * b) {
 
 int main()
 {
-	
 	int *array = new int[SIZE];
 	/////
 	regenerateArray(array,SIZE);
